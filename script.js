@@ -8,7 +8,7 @@ async function sendMessage() {
   chatBox.innerHTML += `<div><strong>You:</strong> ${userText}</div>`;
   input.value = "";
 
-  const res = await fetch("https://your-backend-url.com/ask", {
+  const res = await fetch("https://backend-rp2040.onrender.com/ask", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ question: userText })
