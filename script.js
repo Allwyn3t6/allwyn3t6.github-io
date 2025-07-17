@@ -1,20 +1,20 @@
 async function sendMessage() {
-  const input = document.getElementById("user-input");
+  const userInput = document.getElementById("user-input").value;
   const chatBox = document.getElementById("chat-box");
-  const userText = input.value;
-  
-  if (!userText.trim()) return;
 
-  chatBox.innerHTML += `<div><strong>You:</strong> ${userText}</div>`;
-  input.value = "";
+  chatBox.innerHTML += `<div class="user">You: ${userInput}</div>`;
 
-  const res = await fetch("https://backend-rp2040.onrender.com/ask", {
+  const response = await fetch("https://backend-rp2040.onrender.com/chat", {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ question: userText })
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ message: userInput })
   });
 
-  const data = await res.json();
-  chatBox.innerHTML += `<div><strong>Bot:</strong> ${data.answer}</div>`;
+  const data = await response.json();
+  chatBox.innerHTML += `<div class="bot">Bot: ${data.response}</div>`;
+
+  document.getElementById("user-input").value = "";
   chatBox.scrollTop = chatBox.scrollHeight;
 }
