@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GATE Exclusive Mock Test</title>
+<meta name="description" content="Proctored GATE BM mock tests from GATE Exclusive (allwyncc2c.com).">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Source+Sans+3:wght@400;600;700&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+:root{--bg:#F5F6FB;--surface:#fff;--ink:#1C1B33;--muted:#5B5A76;--line:#E1E0EE;--hema:#3D3A9E;--hema-soft:#E9E8F9;--eosin:#C2386A;--eosin-soft:#FBE7EF;--good:#1E8657;--good-soft:#E3F4EB;--bad:#C03A3A;--bad-soft:#FBE9E9;--warn:#9A6512;--warn-soft:#FDF2DE;--rev:#6B3FA0;
+--f-d:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;--f-b:"Source Sans 3","Segoe UI",system-ui,sans-serif;--f-m:"JetBrains Mono",ui-monospace,Menlo,monospace;--r:12px}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#12111C;--surface:#1B1A29;--ink:#ECEBF7;--muted:#A4A3C0;--line:#2F2E46;--hema:#A19DF5;--hema-soft:#262449;--eosin:#F27CA8;--eosin-soft:#3A1E2C;--good:#4FC48D;--good-soft:#173527;--bad:#F07B7B;--bad-soft:#3B1C1C;--warn:#E9B45A;--warn-soft:#3A2D14;--rev:#C29BF2}}
+:root[data-theme="dark"]{--bg:#12111C;--surface:#1B1A29;--ink:#ECEBF7;--muted:#A4A3C0;--line:#2F2E46;--hema:#A19DF5;--hema-soft:#262449;--eosin:#F27CA8;--eosin-soft:#3A1E2C;--good:#4FC48D;--good-soft:#173527;--bad:#F07B7B;--bad-soft:#3B1C1C;--warn:#E9B45A;--warn-soft:#3A2D14;--rev:#C29BF2}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 var(--f-b)}
+[hidden]{display:none!important}
+h1,h2,h3{font-family:var(--f-d);line-height:1.15;margin:0}
+.bar{position:sticky;top:0;z-index:20;background:var(--surface);border-bottom:1px solid var(--line)}
+.bar-in{max-width:1180px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;gap:12px}
+.logo{flex:none;width:34px;height:34px;border-radius:9px;background:var(--hema);color:var(--surface);font:800 15px var(--f-d);display:grid;place-items:center}
+.brand{min-width:0;flex:1}.brand b{display:block;font-family:var(--f-d)}.brand small{display:block;color:var(--muted);font-size:12.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.timer{font:700 20px var(--f-m);padding:4px 12px;border-radius:9px;background:var(--hema-soft);color:var(--hema)}.timer.low{background:var(--bad-soft);color:var(--bad)}
+.cam{position:relative;width:96px;height:72px;border-radius:9px;overflow:hidden;background:#000;flex:none}
+.cam video,.cam canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scaleX(-1)}
+.cam .dot{position:absolute;left:6px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--good);box-shadow:0 0 0 2px rgba(0,0,0,.35)}.cam .dot.bad{background:var(--bad)}
+main{max-width:1180px;margin:0 auto;padding:18px 16px 60px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px;display:flex;flex-direction:column;gap:12px}
+.narrow{max-width:640px;margin:0 auto}
+.eyebrow{font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--eosin)}
+.lead{color:var(--muted);margin:0}
+label.f{display:flex;flex-direction:column;gap:4px;font-weight:600;font-size:14.5px}
+input[type=text],input[type=email]{font:inherit;padding:10px 12px;border:1px solid var(--line);border-radius:9px;background:var(--surface);color:var(--ink);width:100%}
+input:focus-visible,button:focus-visible{outline:2px solid var(--hema);outline-offset:2px}
+.btn{font:700 15.5px var(--f-b);border:0;border-radius:10px;padding:10px 18px;background:var(--hema);color:#fff;cursor:pointer}.btn:disabled{opacity:.5;cursor:not-allowed}
+.btn.eosin{background:var(--eosin)}.btn.ghost{background:transparent;border:1px solid var(--line);color:var(--ink)}.btn.good{background:var(--good)}
+:root[data-theme="dark"] .btn:not(.ghost),.dk .btn:not(.ghost){color:#12111C}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .btn:not(.ghost){color:#12111C}}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.err{color:var(--bad);font-weight:600;min-height:1.2em}
+.chk{display:flex;gap:10px;align-items:flex-start;font-size:14.5px}.chk input{width:20px;height:20px;margin-top:2px;accent-color:var(--hema);flex:none}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:8px}
+.st{border:1px solid var(--line);border-radius:10px;padding:10px 12px}.st b{display:block;font:700 22px var(--f-m)}.st span{font-size:13px;color:var(--muted)}
+.checks{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+.checks li{display:flex;gap:10px;align-items:center;font-size:15px}.checks i{width:20px;height:20px;border-radius:50%;flex:none;display:grid;place-items:center;font-style:normal;font-size:12px;font-weight:700;background:var(--line);color:var(--muted)}
+.checks li.ok i{background:var(--good);color:#fff}.checks li.no i{background:var(--bad);color:#fff}.checks li.run i{background:var(--warn);color:#fff}
+.preview{position:relative;width:100%;max-width:420px;aspect-ratio:4/3;border-radius:12px;overflow:hidden;background:#000;align-self:center}
+.preview video,.preview canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scaleX(-1)}
+/* test layout */
+.exam{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:16px;align-items:start}
+@media (max-width:900px){.exam{grid-template-columns:1fr}.side{order:-1}}
+.qhead{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:10px}
+.qhead h2{font-size:20px}.meta{display:flex;flex-wrap:wrap;gap:6px}
+.pill{font-size:12.5px;font-weight:700;border-radius:999px;padding:2px 10px;background:var(--hema-soft);color:var(--hema)}.pill.neg{background:var(--bad-soft);color:var(--bad)}.pill.no{background:var(--good-soft);color:var(--good)}
+.qtext{font-size:17px;margin:4px 0}
+.opts{display:flex;flex-direction:column;gap:8px}
+.opt{display:flex;gap:12px;align-items:flex-start;text-align:left;font:inherit;color:inherit;background:var(--surface);border:1.5px solid var(--line);border-radius:10px;padding:10px 12px;cursor:pointer}
+.opt .k{flex:none;width:26px;height:26px;border-radius:50%;border:1.5px solid var(--muted);display:grid;place-items:center;font-weight:700;font-size:13.5px}
+.opt[aria-checked="true"]{border-color:var(--hema);background:var(--hema-soft)}.opt[aria-checked="true"] .k{background:var(--hema);border-color:var(--hema);color:#fff}
+.opt.sq .k{border-radius:6px}
+.nat{display:flex;flex-direction:column;gap:8px;max-width:300px}
+.nat input{font:700 20px var(--f-m);text-align:right}
+.keys{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}.keys button{font:700 16px var(--f-m);padding:9px 0;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer}
+.acts{display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between;border-top:1px solid var(--line);padding-top:12px}
+.side .card{gap:10px}
+.who{display:flex;gap:10px;align-items:center}.who b{display:block}.who small{color:var(--muted)}
+.pal{display:grid;grid-template-columns:repeat(6,1fr);gap:6px}
+.pb{font:700 14px var(--f-m);aspect-ratio:1;border-radius:8px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer;position:relative}
+.pb.na{background:var(--bad-soft);border-color:var(--bad);color:var(--bad)}.pb.an{background:var(--good-soft);border-color:var(--good);color:var(--good)}
+.pb.mr{background:var(--rev);border-color:var(--rev);color:#fff;border-radius:50%}.pb.am{background:var(--rev);border-color:var(--rev);color:#fff;border-radius:50%}
+.pb.am::after{content:"";position:absolute;right:2px;bottom:2px;width:9px;height:9px;border-radius:50%;background:var(--good);border:1.5px solid #fff}
+.pb.cur{outline:3px solid var(--eosin);outline-offset:1px}
+.legend{display:grid;grid-template-columns:1fr 1fr;gap:4px 10px;font-size:12.5px;color:var(--muted)}.legend span{display:flex;gap:6px;align-items:center}.legend i{width:14px;height:14px;border-radius:4px;flex:none;border:1.5px solid var(--line)}
+.wbar{display:flex;align-items:center;justify-content:space-between;font-size:13.5px;font-weight:700}.wbar .w{color:var(--warn)}
+.toast{position:fixed;left:50%;top:76px;transform:translateX(-50%);z-index:60;max-width:min(92vw,560px);background:var(--warn-soft);color:var(--ink);border:1.5px solid var(--warn);border-radius:12px;padding:10px 16px;font-weight:600;box-shadow:0 8px 28px rgba(0,0,0,.18)}
+.modal{position:fixed;inset:0;z-index:70;background:rgba(10,10,20,.62);display:grid;place-items:center;padding:16px}
+.modal .card{max-width:520px;width:100%}
+.calc{position:fixed;right:16px;bottom:16px;z-index:50;width:300px;max-width:calc(100vw - 32px)}
+.calc .card{padding:12px;gap:8px;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+.calc input{font:700 17px var(--f-m);text-align:right}
+.ck{display:grid;grid-template-columns:repeat(5,1fr);gap:5px}.ck button{font:600 13.5px var(--f-m);padding:8px 0;border-radius:7px;border:1px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer}.ck button.op{background:var(--hema-soft);color:var(--hema)}
+table.sum{border-collapse:collapse;width:100%;font-size:14.5px}table.sum td,table.sum th{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left}
+.rev{border:1px solid var(--line);border-radius:10px;padding:12px;display:flex;flex-direction:column;gap:6px}
+.rev.ok{border-left:4px solid var(--good)}.rev.no{border-left:4px solid var(--bad)}.rev.un{border-left:4px solid var(--line)}
+.rev .exp{font-size:14.5px;background:var(--hema-soft);border-radius:8px;padding:8px 10px}
+.foot{font-size:13px;color:var(--muted);text-align:center;margin-top:24px}
+.foot a{color:var(--hema)}
+.mono{font-family:var(--f-m)}
+@media (max-width:560px){.bar-in{gap:8px}.cam{width:64px;height:48px}.timer{font-size:16px;padding:3px 8px}.pal{grid-template-columns:repeat(8,1fr)}}
+</style>
+</head>
+<body>
+<header class="bar"><div class="bar-in">
+  <span class="logo" aria-hidden="true">GE</span>
+  <span class="brand"><b>GATE Exclusive</b><small id="sub">Proctored GATE BM mock test</small></span>
+  <span class="timer" id="timer" hidden>90:00</span>
+  <span class="cam" id="camBox" hidden><video id="camV" muted playsinline></video><span class="dot" id="camDot"></span></span>
+</div></header>
+<main id="app"><div class="card narrow"><p class="lead">Loading…</p></div></main>
+<div class="toast" id="toast" role="status" aria-live="assertive" hidden></div>
+<div class="calc" id="calc" hidden></div>
+<p class="foot">GATE Exclusive by Dr. A. Allwyn Gnanadas · <a href="https://www.allwyncc2c.com/gate-exclusive" target="_blank" rel="noopener">allwyncc2c.com/gate-exclusive</a></p>
+<script type="module">
+/* ============================ configuration ============================ */
+const API = "https://script.google.com/macros/s/AKfycbxThobrDWLrToQgGaW9jqjghp_Oq8RlZCFxGjG0as4dXUimp7LP5zFHyp21p6G7CA9X/exec";
+const SUBJECT = (new URLSearchParams(location.search).get("s") || "IMGMOCK").toUpperCase().replace(/[^A-Z0-9]/g, "");
+const MP = "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.14";
+const FACE_MODEL = "https://storage.googleapis.com/mediapipe-models/face_detector/blaze_face_short_range/float16/1/blaze_face_short_range.tflite";
+const OBJ_MODEL = "https://storage.googleapis.com/mediapipe-models/object_detector/efficientdet_lite0/float16/1/efficientdet_lite0.tflite";
+const RULES = { noFaceMs: 5000, awayMs: 4000, awayYaw: .55, multiTicks: 3, phoneTicks: 2, cooldownMs: 15000, flushMs: 30000 };
+
+/* ============================ helpers ============================ */
+const $ = s => document.querySelector(s), app = $("#app");
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const LS = { get(k) { try { return JSON.parse(localStorage.getItem(k)) } catch (e) { return null } }, set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)) } catch (e) { } }, del(k) { try { localStorage.removeItem(k) } catch (e) { } } };
+const deviceId = () => { let d = LS.get("ge_device"); if (!d) { d = "W" + Math.random().toString(36).slice(2, 10) + Date.now().toString(36); LS.set("ge_device", d) } return d };
+async function api(action, data) {
+  let r; try { r = await fetch(API, { method: "POST", body: JSON.stringify({ action, subjectId: SUBJECT, deviceId: deviceId(), ...data }) }) }
+  catch (e) { throw new Error("Could not reach the GATE Exclusive server. Check your internet connection and try again.") }
+  if (!r.ok) throw new Error("The server returned an error (" + r.status + "). Try again in a minute.");
+  return r.json();
+}
+const L = "ABCD";
+const fmt = ms => { const s = Math.max(0, Math.ceil(ms / 1000)); return String(Math.floor(s / 60)).padStart(2, "0") + ":" + String(s % 60).padStart(2, "0") };
+let toastT = 0; function toast(msg, ms = 4500) { const t = $("#toast"); t.innerHTML = msg; t.hidden = false; clearTimeout(toastT); toastT = setTimeout(() => t.hidden = true, ms) }
+
+/* ============================ state ============================ */
+let PROFILE = LS.get("gemock_profile") || { name: "", email: "", college: "", code: "" };
+let INFO = null;          // from mockCheck
+let T = null;             // active test: {token, questions, end, minutes, maxWarnings, resp, status, cur, warnings, log, title, attempt}
+const saveT = () => { if (T) LS.set("gemock_active", T) };
+
+/* ============================ sign in ============================ */
+function renderSignIn(msg) {
+  app.innerHTML = `<div class="card narrow">
+    <div class="eyebrow">GATE BM · proctored mock test</div>
+    <h1 style="font-size:30px">Sign in to your test</h1>
+    <p class="lead">Use the same email you use on GATE Exclusive and the access code for this test.</p>
+    <form id="f" class="card" style="padding:0;border:0;gap:10px" novalidate>
+      <label class="f">Full name<input type="text" id="nm" autocomplete="name" maxlength="80" value="${esc(PROFILE.name)}"></label>
+      <label class="f">Email<input type="email" id="em" autocomplete="email" maxlength="100" value="${esc(PROFILE.email)}"></label>
+      <label class="f">College<input type="text" id="cl" autocomplete="organization" maxlength="120" value="${esc(PROFILE.college)}"></label>
+      <label class="f">Access code<input type="text" id="cd" autocomplete="off" maxlength="40" value="${esc(PROFILE.code)}" placeholder="e.g. IMGM-XXXXXX"></label>
+      <label class="chk"><input type="checkbox" id="ok"> <span>I agree to camera proctoring. My video is analysed only on this device by the browser and is never recorded or uploaded. Only warning events (their type and time) and my answers are sent to GATE Exclusive.</span></label>
+      <div class="err" id="er" aria-live="polite">${msg ? esc(msg) : ""}</div>
+      <div class="row"><button class="btn" id="go" type="submit">Continue</button></div>
+    </form></div>`;
+  $("#f").onsubmit = async e => {
+    e.preventDefault();
+    const p = { name: $("#nm").value.trim(), email: $("#em").value.trim().toLowerCase(), college: $("#cl").value.trim(), code: $("#cd").value.trim().toUpperCase() };
+    const er = $("#er"), b = $("#go");
+    if (!p.name || !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(p.email) || !p.college) { er.textContent = "Enter your name, a valid email and your college."; return }
+    if (!$("#ok").checked) { er.textContent = "You must agree to camera proctoring to take this test."; return }
+    b.disabled = true; b.textContent = "Checking…"; er.textContent = "";
+    try { const r = await api("mockCheck", p); if (!r.ok) throw new Error(r.error || "That did not work.");
+      PROFILE = p; LS.set("gemock_profile", p); INFO = r; renderInfo() }
+    catch (x) { er.textContent = x.message; b.disabled = false; b.textContent = "Continue" }
+  };
+}
+
+function renderInfo() {
+  app.innerHTML = `<div class="card narrow">
+    <div class="eyebrow">Before you start</div><h1 style="font-size:28px">${esc(INFO.title)}</h1>
+    <div class="stats"><div class="st"><b>${INFO.questions}</b><span>questions</span></div><div class="st"><b>${INFO.marks}</b><span>marks</span></div><div class="st"><b>${INFO.minutes}</b><span>minutes</span></div><div class="st"><b>${INFO.attemptsLeft}</b><span>attempts left</span></div></div>
+    <div>${INFO.instructions || ""}</div>
+    <h2 style="font-size:19px">Proctoring rules</h2>
+    <ul style="margin:0;padding-left:1.2em">
+      <li>Stay in full screen and in this tab for the whole test. Leaving either is recorded.</li>
+      <li>Keep your face clearly visible, alone, and facing the screen. A face missing for 5 s, a second person, a mobile phone, or looking away for several seconds each counts as a warning.</li>
+      <li>After <b>${INFO.maxWarnings} warnings</b> the test is submitted automatically.</li>
+      <li>Use the on-screen calculator (as in GATE). Copy, paste and right-click are disabled.</li>
+      <li>Answers are saved on this device as you go; if the page reloads you can resume until time runs out.</li>
+    </ul>
+    <div class="row"><button class="btn" id="setup">Set up camera</button><button class="btn ghost" id="back">Back</button></div></div>`;
+  $("#setup").onclick = () => renderSetup(false); $("#back").onclick = () => renderSignIn();
+}
+
+/* ============================ proctoring engine ============================ */
+const PR = { stream: null, video: null, face: null, obj: null, timer: 0, lastFace: 0, awaySince: 0, multi: 0, phone: 0, book: 0, cool: {}, faces: 0, yaw: 0, ready: false, onTick: null };
+async function startCamera(video) {
+  if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) throw new Error("This browser cannot use a camera. Use the latest Chrome, Edge or Firefox on a laptop or desktop.");
+  if (!PR.stream || !PR.stream.active) {
+    try { PR.stream = await navigator.mediaDevices.getUserMedia({ video: { width: { ideal: 640 }, height: { ideal: 480 }, facingMode: "user" }, audio: false }) }
+    catch (e) { throw new Error(e.name === "NotAllowedError" ? "Camera permission was denied. Allow the camera for this site (lock icon in the address bar) and try again." : "No usable camera was found (" + e.name + ").") }
+    PR.stream.getVideoTracks().forEach(t => t.onended = () => { if (T && T.status === "running") warn("camera", "Camera stopped", true) });
+  }
+  video.srcObject = PR.stream; await video.play().catch(() => { });
+  PR.video = video;
+}
+async function loadModels(progress) {
+  if (PR.face && PR.obj) return;
+  const vision = await import(MP + "/vision_bundle.mjs");
+  progress && progress("Loading the vision runtime…");
+  const fileset = await vision.FilesetResolver.forVisionTasks(MP + "/wasm");
+  const make = async (C, opts) => { try { return await C.createFromOptions(fileset, { ...opts, baseOptions: { ...opts.baseOptions, delegate: "GPU" } }) } catch (e) { return await C.createFromOptions(fileset, { ...opts, baseOptions: { ...opts.baseOptions, delegate: "CPU" } }) } };
+  progress && progress("Loading the face detector…");
+  PR.face = await make(vision.FaceDetector, { baseOptions: { modelAssetPath: FACE_MODEL }, runningMode: "VIDEO", minDetectionConfidence: .5 });
+  progress && progress("Loading the object detector (phones, people, books)…");
+  PR.obj = await make(vision.ObjectDetector, { baseOptions: { modelAssetPath: OBJ_MODEL }, runningMode: "VIDEO", scoreThreshold: .45, maxResults: 6, categoryAllowlist: ["person", "cell phone", "book", "laptop"] });
+}
+let tick = 0, lastTs = 0;
+function analyse() {
+  const v = PR.video; if (!v || v.readyState < 2 || !PR.face) return null;
+  let ts = performance.now(); if (ts <= lastTs) ts = lastTs + 1; lastTs = ts;
+  const res = { faces: 0, yaw: 0, phone: 0, persons: 0, book: 0, box: null };
+  try {
+    const f = PR.face.detectForVideo(v, ts).detections || [];
+    res.faces = f.length;
+    if (f[0]) { res.box = f[0].boundingBox; const k = f[0].keypoints || []; if (k.length >= 3) { const re = k[0], le = k[1], nose = k[2], w = Math.abs(re.x - le.x) || 1e-3; res.yaw = (nose.x - (re.x + le.x) / 2) / w } }
+    if (tick++ % 4 === 0 && PR.obj) {
+      const o = PR.obj.detectForVideo(v, ts + .5).detections || [];
+      o.forEach(d => { const c = d.categories && d.categories[0]; if (!c) return; if (c.categoryName === "cell phone" && c.score >= .5) res.phone++; if (c.categoryName === "person" && c.score >= .5) res.persons++; if (c.categoryName === "book" && c.score >= .6) res.book++ });
+      res.objChecked = true;
+    }
+  } catch (e) { console.warn(e) }
+  return res;
+}
+function proctorTick() {
+  const r = analyse(); if (!r) return; const now = performance.now();
+  PR.faces = r.faces; PR.yaw = r.yaw;
+  const dot = $("#camDot"); if (dot) dot.classList.toggle("bad", r.faces !== 1);
+  if (PR.onTick) PR.onTick(r);
+  if (!T || T.status !== "running") return;
+  if (r.faces >= 1) PR.lastFace = now; else if (now - PR.lastFace > RULES.noFaceMs) { warn("noface", "No face visible"); PR.lastFace = now }
+  PR.multi = (r.faces >= 2 || r.persons >= 2) ? PR.multi + 1 : (r.objChecked ? 0 : PR.multi);
+  if (PR.multi >= RULES.multiTicks) { warn("multi", "More than one person in view"); PR.multi = 0 }
+  if (r.objChecked) { PR.phone = r.phone ? PR.phone + 1 : 0; PR.book = r.book ? PR.book + 1 : 0 }
+  if (PR.phone >= RULES.phoneTicks) { warn("phone", "Mobile phone detected"); PR.phone = 0 }
+  if (PR.book >= 3) { warn("book", "Book or notes detected"); PR.book = 0 }
+  if (r.faces === 1 && Math.abs(r.yaw) > RULES.awayYaw) { if (!PR.awaySince) PR.awaySince = now; else if (now - PR.awaySince > RULES.awayMs) { warn("away", "Looking away from the screen"); PR.awaySince = 0 } } else PR.awaySince = 0;
+}
+function startProctor() { clearInterval(PR.timer); PR.lastFace = performance.now(); PR.timer = setInterval(proctorTick, 300) }
+function stopProctor() { clearInterval(PR.timer); if (PR.stream) PR.stream.getTracks().forEach(t => t.stop()); PR.stream = null }
+
+function warn(type, text, force) {
+  if (!T || T.status !== "running") return;
+  const now = Date.now();
+  if (!force && PR.cool[type] && now - PR.cool[type] < RULES.cooldownMs) return;
+  PR.cool[type] = now;
+  T.warnings++; T.log.push({ t: new Date().toISOString(), type, detail: text + " (warning " + T.warnings + " of " + T.maxWarnings + ")" }); T.pending.push(T.log[T.log.length - 1]); saveT();
+  toast(`⚠ <b>${esc(text)}.</b> Warning ${T.warnings} of ${T.maxWarnings}.`);
+  const w = $("#wcount"); if (w) w.textContent = `${T.warnings} / ${T.maxWarnings}`;
+  if (T.warnings >= T.maxWarnings) submit("proctoring");
+}
+async function flushEvents() { if (!T || !T.pending.length || T.status !== "running") return; const ev = T.pending.splice(0); saveT(); try { const r = await api("mockEvent", { token: T.token, events: ev }); if (!r.ok) throw 0 } catch (e) { T.pending.unshift(...ev); saveT() } }
+
+/* ============================ setup / system check ============================ */
+async function renderSetup(resume) {
+  app.innerHTML = `<div class="card narrow">
+    <div class="eyebrow">${resume ? "Resume your test" : "System check"}</div><h1 style="font-size:26px">Camera and proctoring check</h1>
+    <div class="preview"><video id="pv" muted playsinline></video><canvas id="pc" width="640" height="480"></canvas></div>
+    <ul class="checks" id="ck">
+      <li id="c1"><i>1</i>Camera is on</li><li id="c2"><i>2</i>Proctoring models loaded (MediaPipe)</li>
+      <li id="c3"><i>3</i>Exactly one face, facing the screen</li><li id="c4"><i>4</i>No phone or second person in view</li><li id="c5"><i>5</i>Full screen is available</li></ul>
+    <p class="lead" id="msg">Allow the camera when your browser asks.</p>
+    <div class="err" id="er"></div>
+    <div class="row"><button class="btn eosin" id="start" disabled>${resume ? "Resume test" : "Start test"}</button><button class="btn ghost" id="cancel">Cancel</button></div></div>`;
+  const set = (id, s) => { const li = $("#" + id); li.className = s; li.querySelector("i").textContent = s === "ok" ? "✓" : s === "no" ? "!" : li.id.slice(1) };
+  $("#cancel").onclick = () => { PR.onTick = null; stopProctor(); resume ? location.reload() : renderInfo() };
+  const msg = $("#msg"), er = $("#er");
+  try { set("c1", "run"); await startCamera($("#pv")); set("c1", "ok") } catch (x) { set("c1", "no"); er.textContent = x.message; return }
+  try { set("c2", "run"); await loadModels(t => msg.textContent = t); set("c2", "ok"); msg.textContent = "Sit centred, face the screen, in good light." }
+  catch (x) { set("c2", "no"); er.textContent = "The proctoring models could not load (" + x.message + "). Check that cdn.jsdelivr.net and storage.googleapis.com are not blocked, then reload."; return }
+  set("c5", document.fullscreenEnabled || document.documentElement.requestFullscreen ? "ok" : "no");
+  const cv = $("#pc"), g = cv.getContext("2d"); let good = 0;
+  PR.video = $("#pv"); startProctor();
+  PR.onTick = r => {
+    g.clearRect(0, 0, 640, 480);
+    if (r.box) { const vw = PR.video.videoWidth || 640, vh = PR.video.videoHeight || 480; g.strokeStyle = r.faces === 1 ? "#4FC48D" : "#F07B7B"; g.lineWidth = 4; g.strokeRect(r.box.originX / vw * 640, r.box.originY / vh * 480, r.box.width / vw * 640, r.box.height / vh * 480) }
+    const faceOk = r.faces === 1 && Math.abs(r.yaw) <= RULES.awayYaw;
+    set("c3", faceOk ? "ok" : "no"); if (r.objChecked) set("c4", r.phone || r.persons > 1 ? "no" : "ok");
+    good = faceOk ? good + 1 : 0;
+    $("#start").disabled = !(good > 5 && $("#c4").className === "ok");
+  };
+  $("#start").onclick = async () => {
+    const b = $("#start"); b.disabled = true; b.textContent = "Starting…";
+    await Promise.race([Promise.resolve().then(() => document.documentElement.requestFullscreen()).catch(() => { }), new Promise(ok => setTimeout(ok, 1500))]);
+    if (resume) { PR.onTick = null; beginTest(); return }
+    try { const r = await api("mockStart", PROFILE); if (!r.ok) throw new Error(r.error || "Could not start the test.");
+      T = { token: r.token, title: r.title, attempt: r.attempt, questions: r.questions, minutes: r.minutes, maxWarnings: r.maxWarnings, end: Date.now() + r.minutes * 60000,
+        resp: {}, state: {}, cur: 0, warnings: 0, log: [], pending: [], status: "running" };
+      T.questions.forEach((q, i) => T.state[q.id] = i === 0 ? "na" : "nv"); saveT(); PR.onTick = null; beginTest() }
+    catch (x) { er.textContent = x.message; b.disabled = false; b.textContent = "Start test"; if (document.fullscreenElement) document.exitFullscreen().catch(() => { }) }
+  };
+}
+
+/* ============================ the test ============================ */
+let clock = 0, flushT = 0;
+function beginTest() {
+  $("#timer").hidden = false; $("#camBox").hidden = false; $("#sub").textContent = T.title;
+  const cv = $("#camV"); cv.srcObject = PR.stream; cv.play().catch(() => { }); PR.video = cv;
+  T.status = "running"; saveT(); startProctor(); PR.lastFace = performance.now();
+  clearInterval(clock); clock = setInterval(() => { const left = T.end - Date.now(); const el = $("#timer"); el.textContent = fmt(left); el.classList.toggle("low", left < 5 * 60000); if (left <= 0) submit("time") }, 500);
+  clearInterval(flushT); flushT = setInterval(flushEvents, RULES.flushMs);
+  renderQ();
+}
+const answered = id => { const r = T.resp[id]; return !(r === undefined || r === null || r === "" || (Array.isArray(r) && !r.length)) };
+function stat(id) { const s = T.state[id]; return s }
+function setVisited(i) { const q = T.questions[i]; if (T.state[q.id] === "nv") T.state[q.id] = "na" }
+function counts() { const c = { an: 0, na: 0, nv: 0, mr: 0, am: 0 }; T.questions.forEach(q => c[T.state[q.id]]++); return c }
+function renderQ() {
+  const q = T.questions[T.cur], i = T.cur, r = T.resp[q.id], c = counts();
+  setVisited(i);
+  const neg = q.t === "MCQ" ? `<span class="pill neg">−${q.k === 1 ? "1/3" : "2/3"} if wrong</span>` : `<span class="pill no">no negative marks</span>`;
+  let body;
+  if (q.t === "NAT") body = `<div class="nat"><label class="f" for="natIn">Your answer</label><input type="text" id="natIn" inputmode="decimal" autocomplete="off" value="${esc(r ?? "")}"><div class="keys">${["7", "8", "9", "⌫", "4", "5", "6", "−", "1", "2", "3", ".", "0", "Clear"].map(k => `<button type="button" data-k="${k}" ${k === "Clear" ? 'style="grid-column:span 3"' : ""}>${k}</button>`).join("")}</div></div>`;
+  else body = `<div class="opts" role="${q.t === "MCQ" ? "radiogroup" : "group"}">${(q.o || []).map((o, j) => { const on = q.t === "MCQ" ? r === j : (r || []).includes(j); return `<button type="button" class="opt ${q.t === "MSQ" ? "sq" : ""}" role="${q.t === "MCQ" ? "radio" : "checkbox"}" aria-checked="${on}" data-j="${j}"><span class="k">${L[j]}</span><span>${o}</span></button>` }).join("")}</div>`;
+  app.innerHTML = `<div class="exam">
+    <section class="card">
+      <div class="qhead"><h2>Question ${i + 1} <span style="color:var(--muted);font-size:15px">of ${T.questions.length}</span></h2>
+        <div class="meta"><span class="pill">${q.t}${q.t === "MSQ" ? " · one or more correct" : q.t === "NAT" ? " · type a number" : ""}</span><span class="pill">${q.k} mark${q.k > 1 ? "s" : ""}</span>${neg}</div></div>
+      <p class="qtext">${q.q}</p>${body}
+      <div class="acts"><div class="row"><button class="btn ghost" id="mrn">Mark for review &amp; next</button><button class="btn ghost" id="clr">Clear response</button></div>
+        <div class="row"><button class="btn ghost" id="prev" ${i === 0 ? "disabled" : ""}>Previous</button><button class="btn" id="sn">Save &amp; next</button></div></div>
+    </section>
+    <aside class="side"><div class="card">
+      <div class="who"><span class="logo" aria-hidden="true">${esc((PROFILE.name || "?").trim().charAt(0).toUpperCase())}</span><div><b>${esc(PROFILE.name)}</b><small>Attempt ${T.attempt}</small></div></div>
+      <div class="wbar"><span>Proctoring warnings</span><span class="w" id="wcount">${T.warnings} / ${T.maxWarnings}</span></div>
+      <div class="pal" id="pal">${T.questions.map((x, k) => `<button type="button" class="pb ${T.state[x.id] === "nv" ? "" : T.state[x.id]} ${k === i ? "cur" : ""}" data-k="${k}" aria-label="Question ${k + 1}">${k + 1}</button>`).join("")}</div>
+      <div class="legend"><span><i class="pb an" style="width:14px;height:14px"></i>${c.an} answered</span><span><i style="background:var(--bad-soft);border-color:var(--bad)"></i>${c.na} not answered</span><span><i></i>${c.nv} not visited</span><span><i style="background:var(--rev);border-color:var(--rev);border-radius:50%"></i>${c.mr} marked</span><span style="grid-column:span 2"><i style="background:var(--rev);border-color:var(--rev);border-radius:50%;box-shadow:inset -4px -4px 0 var(--good)"></i>${c.am} answered &amp; marked (will be evaluated)</span></div>
+      <div class="row"><button class="btn ghost" id="calcB">Calculator</button><button class="btn eosin" id="sub2" style="flex:1">Submit test</button></div>
+    </div></aside></div>`;
+  // answer input
+  const store = v => { T.resp[q.id] = v; saveT() };
+  if (q.t === "NAT") { const inp = $("#natIn"); inp.oninput = () => { inp.value = inp.value.replace(/[^0-9.\-]/g, ""); store(inp.value) };
+    app.querySelectorAll(".keys button").forEach(b => b.onclick = () => { const k = b.dataset.k; let v = inp.value; if (k === "⌫") v = v.slice(0, -1); else if (k === "Clear") v = ""; else if (k === "−") v = v.startsWith("-") ? v.slice(1) : "-" + v; else if (k === "." && v.includes(".")) { } else v += k; inp.value = v; store(v) }) }
+  else app.querySelectorAll(".opt").forEach(b => b.onclick = () => { const j = +b.dataset.j; if (q.t === "MCQ") store(T.resp[q.id] === j ? undefined : j); else { const a = [...(T.resp[q.id] || [])], p = a.indexOf(j); p >= 0 ? a.splice(p, 1) : a.push(j); store(a) }
+    app.querySelectorAll(".opt").forEach(x => { const k = +x.dataset.j, v = T.resp[q.id]; x.setAttribute("aria-checked", q.t === "MCQ" ? v === k : (v || []).includes(k)) }) });
+  const go = k => { T.cur = k; saveT(); renderQ(); window.scrollTo(0, 0) };
+  $("#sn").onclick = () => { T.state[q.id] = answered(q.id) ? "an" : "na"; go(Math.min(T.questions.length - 1, i + 1)); if (i === T.questions.length - 1) renderQ() };
+  $("#mrn").onclick = () => { T.state[q.id] = answered(q.id) ? "am" : "mr"; go(Math.min(T.questions.length - 1, i + 1)); if (i === T.questions.length - 1) renderQ() };
+  $("#clr").onclick = () => { delete T.resp[q.id]; T.state[q.id] = "na"; saveT(); renderQ() };
+  $("#prev").onclick = () => go(i - 1);
+  app.querySelectorAll(".pb[data-k]").forEach(b => b.onclick = () => { if (T.state[q.id] === "nv" || T.state[q.id] === "na") T.state[q.id] = answered(q.id) ? "an" : "na"; go(+b.dataset.k) });
+  $("#calcB").onclick = toggleCalc; $("#sub2").onclick = confirmSubmit;
+}
+function confirmSubmit() {
+  const c = counts(); const m = document.createElement("div"); m.className = "modal";
+  m.innerHTML = `<div class="card"><h2 style="font-size:22px">Submit the test?</h2><table class="sum"><tr><td>Answered</td><td class="mono">${c.an + c.am}</td></tr><tr><td>Not answered</td><td class="mono">${c.na}</td></tr><tr><td>Not visited</td><td class="mono">${c.nv}</td></tr><tr><td>Marked for review (not answered)</td><td class="mono">${c.mr}</td></tr><tr><td>Time left</td><td class="mono">${fmt(T.end - Date.now())}</td></tr></table><p class="lead">After submitting you cannot change any answer.</p><div class="row"><button class="btn eosin" id="yes">Yes, submit</button><button class="btn ghost" id="no">Keep working</button></div></div>`;
+  document.body.appendChild(m); m.querySelector("#no").onclick = () => m.remove(); m.querySelector("#yes").onclick = () => { m.remove(); submit("submitted") };
+}
+let submitting = false;
+async function submit(reason) {
+  if (!T || T.status !== "running" || submitting) return; submitting = true; T.status = "submitting"; saveT();
+  clearInterval(clock); clearInterval(flushT);
+  app.innerHTML = `<div class="card narrow"><h2 style="font-size:22px">${reason === "time" ? "Time is up." : reason === "proctoring" ? "The test was submitted automatically." : "Submitting…"}</h2><p class="lead">${reason === "proctoring" ? "The maximum number of proctoring warnings was reached. " : ""}Saving your answers…</p></div>`;
+  const resp = {}; Object.keys(T.resp).forEach(k => { if (answered(k)) resp[k] = T.resp[k] });
+  for (let tries = 0; tries < 4; tries++) {
+    try { const r = await api("mockSubmit", { token: T.token, resp, reason, warnings: T.warnings, events: T.pending }); if (!r.ok) throw new Error(r.error);
+      T.status = "done"; T.result = r; LS.del("gemock_active"); stopProctor(); $("#calc").hidden = true; if (document.fullscreenElement) document.exitFullscreen().catch(() => { }); renderResult(r, reason); submitting = false; return }
+    catch (x) { if (x && x.message && /already been submitted|not found/.test(x.message)) { app.innerHTML = `<div class="card narrow"><h2>${esc(x.message)}</h2><p class="lead">Your result is with GATE Exclusive.</p></div>`; LS.del("gemock_active"); stopProctor(); submitting = false; return }
+      await new Promise(ok => setTimeout(ok, 2500 * (tries + 1))) }
+  }
+  T.status = "running"; saveT(); submitting = false;
+  app.innerHTML = `<div class="card narrow"><h2>Could not reach the server</h2><p class="lead">Your answers are saved on this device. Check your connection, then press Retry.</p><div class="row"><button class="btn" id="rt">Retry submit</button></div></div>`;
+  $("#rt").onclick = () => { T.status = "running"; submit(reason) };
+}
+function renderResult(r, reason) {
+  $("#timer").hidden = true; $("#camBox").hidden = true;
+  const pct = r.max ? Math.max(0, r.score) / r.max * 100 : 0;
+  const ans = d => d.t === "MCQ" ? L[d.a] : d.t === "MSQ" ? d.a.map(i => L[i]).join(", ") : (d.a[0] === d.a[1] ? d.a[0] : d.a[0] + " to " + d.a[1]);
+  const yours = d => d.r === null || d.r === undefined || d.r === "" ? "not answered" : d.t === "MCQ" ? L[d.r] : d.t === "MSQ" ? [].concat(d.r).map(i => L[i]).join(", ") : d.r;
+  app.innerHTML = `<div class="card narrow" style="max-width:860px">
+    <div class="eyebrow">Result · attempt ${T.attempt}</div><h1 style="font-size:28px">${esc(T.title)}</h1>
+    <div class="stats"><div class="st"><b>${r.score}</b><span>of ${r.max} marks</span></div><div class="st"><b>${pct.toFixed(0)}%</b><span>score</span></div><div class="st"><b>${r.correct}</b><span>correct</span></div><div class="st"><b>${r.wrong}</b><span>wrong</span></div><div class="st"><b>${r.unanswered}</b><span>not answered</span></div><div class="st"><b>${r.minutes}</b><span>minutes used</span></div></div>
+    <p class="lead">${reason === "proctoring" ? "Submitted automatically after " + T.warnings + " proctoring warnings. " : ""}Proctoring warnings: <b>${T.warnings}</b>${T.log.length ? " (" + T.log.map(l => esc(l.detail.replace(/ \(warning.*$/, ""))).join("; ") + ")" : ""}. Your result has been saved to GATE Exclusive.</p>
+    <h2 style="font-size:20px">Solutions</h2>
+    ${r.details.map((d, i) => `<div class="rev ${d.c === null ? "un" : d.c ? "ok" : "no"}"><div class="meta"><span class="pill">Q${i + 1} · ${d.t} · ${d.k} mark${d.k > 1 ? "s" : ""}</span><span class="pill ${d.m < 0 ? "neg" : d.m > 0 ? "no" : ""}">${d.m > 0 ? "+" : ""}${d.m} marks</span></div>
+      <div>${d.q}</div>${d.o ? `<ol type="A" style="margin:0;padding-left:1.4em">${d.o.map(o => `<li>${o}</li>`).join("")}</ol>` : ""}
+      <div style="font-size:14.5px">Your answer: <b>${esc(yours(d))}</b> · Correct answer: <b>${esc(ans(d))}</b></div><div class="exp">${d.e}</div></div>`).join("")}
+    <div class="row"><a class="btn" href="https://www.allwyncc2c.com/gate-exclusive" style="text-decoration:none">Back to GATE Exclusive</a></div></div>`;
+}
+
+/* ============================ integrity listeners ============================ */
+document.addEventListener("visibilitychange", () => { if (document.hidden) warn("tab", "Left the test tab or window") });
+window.addEventListener("blur", () => setTimeout(() => { if (!document.hasFocus() && !document.hidden) warn("blur", "Switched to another window") }, 400));
+document.addEventListener("fullscreenchange", () => {
+  if (document.fullscreenElement || !T || T.status !== "running") return;
+  warn("fullscreen", "Left full screen");
+  const m = document.createElement("div"); m.className = "modal"; m.innerHTML = `<div class="card"><h2 style="font-size:22px">Return to full screen</h2><p class="lead">The test must stay in full screen. The timer is still running.</p><div class="row"><button class="btn" id="fs">Return to full screen</button></div></div>`;
+  document.body.appendChild(m); m.querySelector("#fs").onclick = () => { document.documentElement.requestFullscreen().catch(() => { }); m.remove() };
+});
+["copy", "cut", "paste", "contextmenu", "dragstart"].forEach(ev => document.addEventListener(ev, e => { if (T && T.status === "running") e.preventDefault() }));
+document.addEventListener("keydown", e => { if (!T || T.status !== "running") return; const k = e.key.toLowerCase();
+  if (k === "printscreen") warn("screenshot", "Screenshot key pressed");
+  if ((e.ctrlKey || e.metaKey) && ["c", "v", "x", "p", "s", "u", "f"].includes(k)) e.preventDefault();
+  if (k === "f12" || ((e.ctrlKey || e.metaKey) && e.shiftKey && ["i", "j", "c"].includes(k))) { e.preventDefault(); warn("devtools", "Developer tools shortcut") } });
+window.addEventListener("beforeunload", e => { if (T && T.status === "running") { e.preventDefault(); e.returnValue = "" } });
+
+/* ============================ GATE-style calculator ============================ */
+let calcDeg = true;
+function toggleCalc() {
+  const c = $("#calc"); if (!c.hidden) { c.hidden = true; return }
+  const K = [["sin", "cos", "tan", "ln", "log"], ["asin", "acos", "atan", "eˣ", "10ˣ"], ["√", "x²", "xʸ", "(", ")"], ["7", "8", "9", "÷", "C"], ["4", "5", "6", "×", "⌫"], ["1", "2", "3", "−", "π"], ["0", ".", "±", "+", "="]];
+  c.innerHTML = `<div class="card"><div class="row" style="justify-content:space-between"><b>Calculator</b><span class="row" style="gap:6px"><button class="btn ghost" id="deg" style="padding:3px 10px;font-size:13px">${calcDeg ? "Deg" : "Rad"}</button><button class="btn ghost" id="cx" style="padding:3px 10px;font-size:13px" aria-label="Close calculator">✕</button></span></div>
+    <input type="text" id="cin" autocomplete="off" aria-label="Expression"><div class="mono" id="cout" style="text-align:right;color:var(--muted);min-height:1.3em"></div>
+    <div class="ck">${K.flat().map(k => `<button type="button" class="${/[0-9.]/.test(k) ? "" : "op"}" data-k="${k}">${k}</button>`).join("")}</div></div>`;
+  c.hidden = false;
+  const inp = $("#cin"), out = $("#cout");
+  const ins = s => { inp.value += s; inp.focus() };
+  c.querySelector("#cx").onclick = () => c.hidden = true; c.querySelector("#deg").onclick = e => { calcDeg = !calcDeg; e.target.textContent = calcDeg ? "Deg" : "Rad" };
+  c.querySelectorAll(".ck button").forEach(b => b.onclick = () => { const k = b.dataset.k;
+    const map = { "÷": "/", "×": "*", "−": "-", "π": "pi", "eˣ": "exp(", "10ˣ": "10^(", "√": "sqrt(", "x²": "^2", "xʸ": "^", "sin": "sin(", "cos": "cos(", "tan": "tan(", "ln": "ln(", "log": "log(", "asin": "asin(", "acos": "acos(", "atan": "atan(" };
+    if (k === "C") { inp.value = ""; out.textContent = "" } else if (k === "⌫") { inp.value = inp.value.slice(0, -1) } else if (k === "±") { inp.value = inp.value ? "-(" + inp.value + ")" : "-" }
+    else if (k === "=") { try { const v = calc(inp.value); out.textContent = "= " + (Math.abs(v) < 1e-4 || Math.abs(v) > 1e9 ? v.toExponential(6) : +v.toPrecision(10)) } catch (e) { out.textContent = "Error" } }
+    else ins(map[k] || k) });
+  inp.onkeydown = e => { if (e.key === "Enter") c.querySelector('[data-k="="]').click() };
+}
+// small safe expression parser (no eval): + − × ÷ ^, parentheses, functions, pi and e
+function calc(src) {
+  const s = src.replace(/\s+/g, ""); let i = 0;
+  const peek = () => s[i], eat = c => { if (s[i] === c) { i++; return true } return false };
+  const tr = x => calcDeg ? x * Math.PI / 180 : x, itr = x => calcDeg ? x * 180 / Math.PI : x;
+  const F = { sin: x => Math.sin(tr(x)), cos: x => Math.cos(tr(x)), tan: x => Math.tan(tr(x)), asin: x => itr(Math.asin(x)), acos: x => itr(Math.acos(x)), atan: x => itr(Math.atan(x)), ln: Math.log, log: Math.log10, sqrt: Math.sqrt, exp: Math.exp, abs: Math.abs };
+  function prim() {
+    if (eat("(")) { const v = expr(); if (!eat(")")) throw 0; return v }
+    if (eat("-")) return -factor(); if (eat("+")) return factor();
+    const m = /^[0-9]*\.?[0-9]+(e[-+]?[0-9]+)?/i.exec(s.slice(i)); if (m) { i += m[0].length; return parseFloat(m[0]) }
+    const w = /^[a-z]+/i.exec(s.slice(i)); if (w) { i += w[0].length; const n = w[0].toLowerCase(); if (n === "pi") return Math.PI; if (n === "e") return Math.E; if (F[n]) { if (!eat("(")) throw 0; const v = expr(); if (!eat(")")) throw 0; return F[n](v) } }
+    throw 0;
+  }
+  function factor() { let b = prim(); while (peek() === "^") { i++; b = Math.pow(b, factor()) } return b }
+  function term() { let v = factor(); for (;;) { if (eat("*")) v *= factor(); else if (eat("/")) v /= factor(); else return v } }
+  function expr() { let v = term(); for (;;) { if (eat("+")) v += term(); else if (eat("-")) v -= term(); else return v } }
+  const v = expr(); if (i !== s.length || !isFinite(v)) throw 0; return v;
+}
+window.__calc = calc;   // exposed for testing
+
+/* ============================ boot ============================ */
+(function boot() {
+  const a = LS.get("gemock_active");
+  if (a && a.status !== "done" && a.end > Date.now()) {
+    T = a; T.status = "paused";
+    app.innerHTML = `<div class="card narrow"><div class="eyebrow">Test in progress</div><h1 style="font-size:26px">${esc(a.title)}</h1><p class="lead">You have a test in progress with ${fmt(a.end - Date.now())} left. The timer kept running while you were away. Reconnect your camera to continue.</p><div class="row"><button class="btn eosin" id="res">Resume</button></div></div>`;
+    $("#res").onclick = () => renderSetup(true); return;
+  }
+  if (a && a.status !== "done" && a.end <= Date.now()) { T = a; T.status = "running"; submit("time"); return }
+  renderSignIn();
+})();
+</script>
+</body>
+</html>
