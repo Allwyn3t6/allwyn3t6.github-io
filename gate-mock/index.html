@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>GATE Exclusive Mock Test</title>
-<meta name="description" content="Proctored GATE BM mock tests from GATE Exclusive (allwyncc2c.com).">
+<title>Biomedical Bits · Proctored GATE BM Test</title>
+<meta name="description" content="Proctored GATE BM test series from Biomedical Bits.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Source+Sans+3:wght@400;600;700&family=JetBrains+Mono:wght@500;700&display=swap">
 <style>
@@ -91,15 +91,15 @@ table.sum{border-collapse:collapse;width:100%;font-size:14.5px}table.sum td,tabl
 </head>
 <body>
 <header class="bar"><div class="bar-in">
-  <span class="logo" aria-hidden="true">GE</span>
-  <span class="brand"><b>GATE Exclusive</b><small id="sub">Proctored GATE BM mock test</small></span>
+  <span class="logo" aria-hidden="true">BB</span>
+  <span class="brand"><b>Biomedical Bits</b><small id="sub">Proctored GATE BM test</small></span>
   <span class="timer" id="timer" hidden>90:00</span>
   <span class="cam" id="camBox" hidden><video id="camV" muted playsinline></video><span class="dot" id="camDot"></span></span>
 </div></header>
 <main id="app"><div class="card narrow"><p class="lead">Loading…</p></div></main>
 <div class="toast" id="toast" role="status" aria-live="assertive" hidden></div>
 <div class="calc" id="calc" hidden></div>
-<p class="foot">GATE Exclusive by Dr. A. Allwyn Gnanadas · <a href="https://www.allwyncc2c.com/gate-exclusive" target="_blank" rel="noopener">allwyncc2c.com/gate-exclusive</a></p>
+<p class="foot">Biomedical Bits · GATE BM test series · <a href="https://www.allwyncc2c.com/gate-exclusive" target="_blank" rel="noopener">Course page</a> · Help: <a href="mailto:allwyn3T6@gmail.com">allwyn3T6@gmail.com</a></p>
 <script type="module">
 /* ============================ configuration ============================ */
 const API = "https://script.google.com/macros/s/AKfycbxThobrDWLrToQgGaW9jqjghp_Oq8RlZCFxGjG0as4dXUimp7LP5zFHyp21p6G7CA9X/exec";
@@ -116,7 +116,7 @@ const LS = { get(k) { try { return JSON.parse(localStorage.getItem(k)) } catch (
 const deviceId = () => { let d = LS.get("ge_device"); if (!d) { d = "W" + Math.random().toString(36).slice(2, 10) + Date.now().toString(36); LS.set("ge_device", d) } return d };
 async function api(action, data) {
   let r; try { r = await fetch(API, { method: "POST", body: JSON.stringify({ action, subjectId: SUBJECT, deviceId: deviceId(), ...data }) }) }
-  catch (e) { throw new Error("Could not reach the GATE Exclusive server. Check your internet connection and try again.") }
+  catch (e) { throw new Error("Could not reach the Biomedical Bits server. Check your internet connection and try again.") }
   if (!r.ok) throw new Error("The server returned an error (" + r.status + "). Try again in a minute.");
   return r.json();
 }
@@ -135,13 +135,13 @@ function renderSignIn(msg) {
   app.innerHTML = `<div class="card narrow">
     <div class="eyebrow">GATE BM · proctored mock test</div>
     <h1 style="font-size:30px">Sign in to your test</h1>
-    <p class="lead">Use the same email you use on GATE Exclusive and the access code for this test.</p>
+    <p class="lead">Use the same email you use on the Biomedical Bits course page and your access code. One code works for every test you have bought.</p>
     <form id="f" class="card" style="padding:0;border:0;gap:10px" novalidate>
       <label class="f">Full name<input type="text" id="nm" autocomplete="name" maxlength="80" value="${esc(PROFILE.name)}"></label>
       <label class="f">Email<input type="email" id="em" autocomplete="email" maxlength="100" value="${esc(PROFILE.email)}"></label>
       <label class="f">College<input type="text" id="cl" autocomplete="organization" maxlength="120" value="${esc(PROFILE.college)}"></label>
       <label class="f">Access code<input type="text" id="cd" autocomplete="off" maxlength="40" value="${esc(PROFILE.code)}" placeholder="e.g. IMGM-XXXXXX"></label>
-      <label class="chk"><input type="checkbox" id="ok"> <span>I agree to camera proctoring. My video is analysed only on this device by the browser and is never recorded or uploaded. Only warning events (their type and time) and my answers are sent to GATE Exclusive.</span></label>
+      <label class="chk"><input type="checkbox" id="ok"> <span>I agree to camera proctoring. My video is analysed only on this device by the browser and is never recorded or uploaded. Only warning events (their type and time) and my answers are sent to Biomedical Bits.</span></label>
       <div class="err" id="er" aria-live="polite">${msg ? esc(msg) : ""}</div>
       <div class="row"><button class="btn" id="go" type="submit">Continue</button></div>
     </form></div>`;
@@ -348,7 +348,7 @@ async function submit(reason) {
   for (let tries = 0; tries < 4; tries++) {
     try { const r = await api("mockSubmit", { token: T.token, resp, reason, warnings: T.warnings, events: T.pending }); if (!r.ok) throw new Error(r.error);
       T.status = "done"; T.result = r; LS.del("gemock_active"); stopProctor(); $("#calc").hidden = true; if (document.fullscreenElement) document.exitFullscreen().catch(() => { }); renderResult(r, reason); submitting = false; return }
-    catch (x) { if (x && x.message && /already been submitted|not found/.test(x.message)) { app.innerHTML = `<div class="card narrow"><h2>${esc(x.message)}</h2><p class="lead">Your result is with GATE Exclusive.</p></div>`; LS.del("gemock_active"); stopProctor(); submitting = false; return }
+    catch (x) { if (x && x.message && /already been submitted|not found/.test(x.message)) { app.innerHTML = `<div class="card narrow"><h2>${esc(x.message)}</h2><p class="lead">Your result has been recorded.</p></div>`; LS.del("gemock_active"); stopProctor(); submitting = false; return }
       await new Promise(ok => setTimeout(ok, 2500 * (tries + 1))) }
   }
   T.status = "running"; saveT(); submitting = false;
@@ -363,12 +363,12 @@ function renderResult(r, reason) {
   app.innerHTML = `<div class="card narrow" style="max-width:860px">
     <div class="eyebrow">Result · attempt ${T.attempt}</div><h1 style="font-size:28px">${esc(T.title)}</h1>
     <div class="stats"><div class="st"><b>${r.score}</b><span>of ${r.max} marks</span></div><div class="st"><b>${pct.toFixed(0)}%</b><span>score</span></div><div class="st"><b>${r.correct}</b><span>correct</span></div><div class="st"><b>${r.wrong}</b><span>wrong</span></div><div class="st"><b>${r.unanswered}</b><span>not answered</span></div><div class="st"><b>${r.minutes}</b><span>minutes used</span></div></div>
-    <p class="lead">${reason === "proctoring" ? "Submitted automatically after " + T.warnings + " proctoring warnings. " : ""}Proctoring warnings: <b>${T.warnings}</b>${T.log.length ? " (" + T.log.map(l => esc(l.detail.replace(/ \(warning.*$/, ""))).join("; ") + ")" : ""}. Your result has been saved to GATE Exclusive.</p>
+    <p class="lead">${reason === "proctoring" ? "Submitted automatically after " + T.warnings + " proctoring warnings. " : ""}Proctoring warnings: <b>${T.warnings}</b>${T.log.length ? " (" + T.log.map(l => esc(l.detail.replace(/ \(warning.*$/, ""))).join("; ") + ")" : ""}. Your result has been saved.</p>
     <h2 style="font-size:20px">Solutions</h2>
     ${r.details.map((d, i) => `<div class="rev ${d.c === null ? "un" : d.c ? "ok" : "no"}"><div class="meta"><span class="pill">Q${i + 1} · ${d.t} · ${d.k} mark${d.k > 1 ? "s" : ""}</span><span class="pill ${d.m < 0 ? "neg" : d.m > 0 ? "no" : ""}">${d.m > 0 ? "+" : ""}${d.m} marks</span></div>
       <div>${d.q}</div>${d.o ? `<ol type="A" style="margin:0;padding-left:1.4em">${d.o.map(o => `<li>${o}</li>`).join("")}</ol>` : ""}
       <div style="font-size:14.5px">Your answer: <b>${esc(yours(d))}</b> · Correct answer: <b>${esc(ans(d))}</b></div><div class="exp">${d.e}</div></div>`).join("")}
-    <div class="row"><a class="btn" href="https://www.allwyncc2c.com/gate-exclusive" style="text-decoration:none">Back to GATE Exclusive</a></div></div>`;
+    <div class="row"><a class="btn" href="https://www.allwyncc2c.com/gate-exclusive" style="text-decoration:none">Back to the course page</a></div></div>`;
 }
 
 /* ============================ integrity listeners ============================ */
