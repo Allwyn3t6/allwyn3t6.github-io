@@ -5,12 +5,13 @@
  * install the trigger. The sheet timezone controls the scheduled reminder.
  */
 const SHEET_NAME = 'Expenses';
-const HEADERS = ['Date', 'Amount', 'Description', 'Category', 'Paid by', 'Note', 'Entry ID', 'Type'];
+const HEADERS = ['Date', 'Amount', 'Description', 'Category', 'Paid by', 'Note', 'Entry ID', 'Type', 'Status'];
 
 function doPost(e) {
   try {
     const body = JSON.parse(e.postData.contents || '{}');
     if (body.action === 'expense') appendExpense_(body.expense);
+    if (body.action === 'archive') archiveExpense_(body.id);
     if (body.action === 'config') saveConfig_(body);
     return ContentService.createTextOutput(JSON.stringify({ ok: true }))
       .setMimeType(ContentService.MimeType.JSON);
@@ -21,10 +22,19 @@ function doPost(e) {
   }
 }
 
+function archiveExpense_(id) {
+  if (!id) throw new Error('Entry ID is required.');
+  const sheet = getSheet_();
+  const lastRow = sheet.getLastRow();
+  if (lastRow < 2) return;
+  const ids = sheet.getRange(2, 7, lastRow - 1, 1).getDisplayValues();
+  for (let i = ids.length - 1; i >= 0; i--) if (ids[i][0] === String(id)) sheet.getRange(i + 2, 9).setValue('Archived');
+}
+
 // JSONP read endpoint lets the static app load shared rows without a server.
 function doGet(e) {
   const data = getSheet_().getDataRange().getDisplayValues();
-  const rows = data.slice(1).filter(r => r[6]).map(r => ({
+  const rows = data.slice(1).filter(r => r[6] && String(r[8]).toLowerCase() !== 'archived').map(r => ({
     id: String(r[6]), date: String(r[0]), amount: Number(String(r[1]).replace(/,/g, '')), description: String(r[2]),
     category: String(r[3]), paidBy: String(r[4]), note: String(r[5]), type: String(r[7] || 'expense').toLowerCase(), createdAt: ''
   }));
@@ -41,7 +51,7 @@ function appendExpense_(item) {
   if (!item || !item.amount || !item.description) throw new Error('Expense needs amount and description.');
   const sheet = getSheet_();
   sheet.appendRow([item.date || '', Number(item.amount), item.description, item.category || 'Other',
-    item.paidBy || '', item.note || '', item.id || Utilities.getUuid(), item.type || 'expense']);
+    item.paidBy || '', item.note || '', item.id || Utilities.getUuid(), item.type || 'expense', 'Active']);
 }
 
 function saveConfig_(body) {
@@ -59,8 +69,9 @@ function getSheet_() {
     sheet.setFrozenRows(1);
     sheet.getRange(1, 1, 1, HEADERS.length).setFontWeight('bold').setBackground('#e8ede4');
     sheet.setColumnWidths(1, HEADERS.length, 140);
-  } else if (sheet.getRange(1, 8).getValue() !== 'Type') {
-    sheet.getRange(1, 8).setValue('Type').setFontWeight('bold').setBackground('#e8ede4');
+  } else {
+    if (sheet.getRange(1, 8).getValue() !== 'Type') sheet.getRange(1, 8).setValue('Type').setFontWeight('bold').setBackground('#e8ede4');
+    if (sheet.getRange(1, 9).getValue() !== 'Status') sheet.getRange(1, 9).setValue('Status').setFontWeight('bold').setBackground('#e8ede4');
   }
   return sheet;
 }
