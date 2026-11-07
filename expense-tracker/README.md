@@ -2,7 +2,7 @@
 
 A responsive, installable household money tracker. It records expenses and income, offers colorful icon based category choices, and shows monthly income, spending and the difference between them. Entries are stored on the current device and can be appended to a shared Google Sheet. The message helper extracts a likely amount, merchant and date from a pasted bank or payment SMS; both people review and confirm before adding it.
 
-The savings goal is an optional monthly target. Its progress is calculated as recorded income minus recorded expenses, so it is an estimate of monthly surplus rather than a bank balance or a confirmed transfer into savings. The payday prompt encourages a simple pay-yourself-first habit.
+The savings goal is an optional monthly target. Its progress is calculated as recorded income minus recorded expenses, so it is an estimate of monthly surplus rather than a bank balance or a confirmed transfer into savings. The payday prompt encourages a simple pay-yourself-first habit. Entries can be archived from Recent activity; when connected, the Sheet row is retained with `Status = Archived` and can be restored by changing the status back to `Active`.
 
 ## Connect a Google Sheet
 
@@ -16,7 +16,7 @@ The savings goal is an optional monthly target. Its progress is calculated as re
 
 Serve this folder over HTTPS or localhost (for example, `npx serve .`), then open the URL on both phones and use **Add to Home Screen**. To share the app itself, host these static files on any HTTPS static host and use the same URL on both phones.
 
-Each browser keeps a local cache and loads shared entries from the sheet when online. The sheet includes a `Type` column for income and expense entries. Existing expense rows are treated as expenses. The entry interface can work offline, but an offline entry is not queued for later sheet delivery. Savings targets are stored on each device.
+Each browser keeps a local cache and loads shared entries from the sheet when online. The sheet includes `Type` and `Status` columns. Existing expense rows are treated as expenses and active. Archived rows remain in the sheet for recovery. The entry interface can work offline, but an offline entry is not queued for later sheet delivery. Savings targets are stored on each device.
 
 ## Message suggestions and privacy
 
