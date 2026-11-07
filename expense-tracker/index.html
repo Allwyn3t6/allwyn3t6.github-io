@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#f6f5f1"><meta name="description" content="A calm, shared space for keeping track of household expenses.">
+  <link rel="manifest" href="manifest.webmanifest"><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="color.css">
+  <title>Commonplace — household expenses</title>
+</head>
+<body>
+  <header class="topbar"><a class="brand" href="#"><span class="brand-mark">c.</span><span>commonplace</span></a><div class="top-actions"><span class="sync-state"><i></i><span id="sync-label">Saved on this device</span></span><button class="icon-btn" id="settings-open" aria-label="Settings">⚙</button></div></header>
+  <main>
+    <section class="welcome"><div><p class="eyebrow" id="today-label">HOUSEHOLD, TOGETHER</p><h1>Good evening<span class="period">.</span></h1><p class="subhead">A little clarity, one expense at a time.</p></div><div class="people"><span class="avatar avatar-one">Y</span><span class="avatar avatar-two">W</span><span class="people-label">You &amp; your wife</span></div></section>
+    <section class="summary-grid" aria-label="This month summary">
+      <article class="summary-card total-card"><div class="summary-top"><span class="eyebrow">OUT THIS MONTH</span><span class="month-chip" id="month-chip"></span></div><div class="amount" id="month-total">₹0</div><div class="summary-foot"><span class="accent-dot"></span><span id="entry-count">No expenses yet</span></div><div class="card-decoration"></div></article>
+      <article class="summary-card income-summary"><span class="eyebrow">INCOME THIS MONTH</span><div class="amount secondary-amount" id="income-total">₹0</div><div class="summary-foot"><span class="summary-emoji">↗</span><span>Money in</span></div></article>
+      <article class="summary-card balance-summary"><span class="eyebrow">LEFT THIS MONTH</span><div class="amount secondary-amount" id="left-total">₹0</div><div class="summary-foot"><span class="summary-emoji">✳</span><span>Income minus spending</span></div></article>
+    </section>
+    <section class="workspace-grid">
+      <div class="left-column">
+        <section class="panel add-panel"><div class="panel-heading"><div><p class="eyebrow">QUICK ENTRY</p><h2 id="entry-heading">Add an expense</h2></div><span class="sparkle">✳</span></div>
+          <div class="entry-tabs" role="tablist"><button class="entry-tab active" data-kind="expense" type="button">↘ &nbsp;Expense</button><button class="entry-tab" data-kind="income" type="button">↗ &nbsp;Income</button></div>
+          <form id="expense-form"><div class="form-row amount-row"><label class="field-label" for="amount">Amount</label><div class="amount-input"><span>₹</span><input id="amount" inputmode="decimal" type="number" min="0.01" step="0.01" placeholder="0" required></div></div>
+            <div class="form-row"><label class="field-label" for="description">What was it for?</label><input class="text-input" id="description" maxlength="90" placeholder="e.g. Groceries, dinner" required></div>
+            <div class="form-row"><span class="field-label">Choose a category</span><div class="category-grid" id="category-grid"></div></div>
+            <div class="form-pair"><div><label class="field-label" for="paid-by">Paid by</label><select class="text-input" id="paid-by"><option value="You">You</option><option value="Wife">Your wife</option></select></div><div><label class="field-label" for="date">Date</label><input class="text-input" id="date" type="date" required></div></div>
+            <div class="form-pair"><div class="note-field"><label class="field-label" for="note">Note <span class="optional">optional</span></label><input class="text-input" id="note" maxlength="100" placeholder="A small detail"></div></div>
+            <button class="primary-btn" type="submit"><span>＋</span> Add expense <span class="btn-arrow">↗</span></button>
+          </form>
+        </section>
+        <section class="savings-card"><div class="savings-top"><div><p class="eyebrow">A LITTLE TOWARD THE FUTURE</p><h2>Pay yourself first</h2></div><span class="savings-illustration">🌱</span></div><p>Choose a monthly goal. Progress uses this month’s income minus expenses.</p><div class="goal-controls"><span>₹</span><input id="savings-goal" type="number" min="0" step="500" placeholder="Set a monthly goal" aria-label="Monthly savings goal"><button id="save-goal" type="button">Set goal</button></div><div id="goal-progress-wrap" hidden><div class="goal-track"><span id="goal-progress"></span></div><div class="goal-caption" id="goal-caption"></div></div><div class="savings-tip"><span>✦</span> A simple habit: move a little to savings on payday, before the month gets busy.</div></section>
+        <section class="panel suggestion-panel"><div class="panel-heading"><div><p class="eyebrow">FROM YOUR MESSAGES</p><h2>Find an expense</h2></div><span class="suggestion-icon">✳</span></div><p class="panel-copy">Paste a bank or payment message. We’ll look for an amount and merchant, then you can review it before adding.</p><textarea id="message-input" rows="3" placeholder="e.g. INR 685.00 debited from A/c XX1234 at BIGBASKET on 07-Nov-2026"></textarea><div class="message-actions"><span class="privacy-note">Messages stay on this device until you add an expense.</span><button class="text-btn" id="scan-message">Find details <span>→</span></button></div><div id="suggestion-result" class="suggestion-result" hidden></div></section>
+      </div>
+      <section class="panel activity-panel"><div class="activity-heading"><div><p class="eyebrow">YOUR HOUSEHOLD</p><h2>Recent activity</h2></div><button id="filter-toggle" class="filter-btn">This month <span>⌄</span></button></div><div id="expense-list" class="expense-list"></div><div id="empty-state" class="empty-state"><div class="empty-art"><span>₹</span><i>✳</i></div><h3>Your story starts here</h3><p>Add an expense or income to see your household money picture grow.</p></div><div class="activity-footer"><span id="activity-caption">Every entry is a step toward clarity.</span><span>✳</span></div></section>
+    </section>
+    <footer class="page-footer"><span>Made for the everyday things.</span><button id="reminder-link">Set up your 8 PM reminder <span>↗</span></button></footer>
+  </main>
+  <dialog id="settings-dialog"><form method="dialog" class="settings-card"><div class="settings-head"><div><p class="eyebrow">A FEW DETAILS</p><h2>Make it yours</h2></div><button class="close-btn" value="cancel" aria-label="Close">×</button></div><p class="settings-copy">Connect a Google Sheet to share entries across both phones. Add both email addresses for a nightly reminder at 8 PM (sheet timezone).</p><label class="field-label" for="sheet-url">Apps Script web app URL</label><input class="text-input" id="sheet-url" type="url" placeholder="https://script.google.com/macros/s/…/exec"><label class="field-label" for="email-you">Your email</label><input class="text-input" id="email-you" type="email" placeholder="you@example.com"><label class="field-label" for="email-wife">Your wife’s email</label><input class="text-input" id="email-wife" type="email" placeholder="her@example.com"><label class="field-label" for="reminder-time">Reminder time</label><input class="text-input" id="reminder-time" type="time" value="20:00"><button class="primary-btn" id="save-settings" value="save">Save settings <span class="btn-arrow">↗</span></button><p class="settings-hint">Set up the Google Sheet once using the included Apps Script. The reminder email is sent only when the daily trigger is installed.</p></form></dialog>
+  <div id="toast" role="status" aria-live="polite"></div><script src="app.js"></script>
+</body></html>
+
